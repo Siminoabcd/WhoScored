@@ -1,0 +1,82 @@
+*{
+    background-color: #001200;
+}
+
+
+.navbar{
+    width: 100%;
+}
+
+.container-logo{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    width: 100%;
+}
+
+.container-leagues{
+    display: flex;
+    justify-content: space-around;
+    background-color: #99FF99;
+    width: 100%;
+    border: solid 2px black;
+}
+
+header .container-leagues a img {
+    /* Your styles go here */
+    background-color: #99FF99;
+}
+
+
+main {
+    height: 100vh; /* Set to 100% of the viewport height */
+    width: 100%;   /* Set to 100% of the viewport width */
+    margin: 0;
+}
+
+.angry-grid {
+    display: grid; 
+ 
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    
+    gap: 0px;
+    height: 100%;  
+}
+   
+.matches-grid {
+    grid-row-start: 2;
+    grid-column-start: 2;
+ 
+    grid-row-end: 7;
+    grid-column-end: 4;
+    margin: 10px;  
+}
+
+/* .games-container{
+
+} */
+
+.league-grid {
+    grid-row-start: 2;
+    grid-column-start: 4;
+    grid-row-end: 3;
+    grid-column-end: 10;
+    margin: 10px;
+}
+
+
+.scorers-grid {
+    grid-row-start: 2;
+    grid-column-start: 10;
+    grid-row-end: 7;
+    grid-column-end: 12;
+    margin: 10px;
+}
+
+.table-grid {
+    grid-area: 2 / 4 / 7 / 10  ;
+    margin: 10px;
+}
+
+

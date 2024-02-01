@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>WhoScored!</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header>
+      <div class="navbar">
+          <div class="container-logo">
+              <a href="/">
+                  <img src="/img/21e93e76b9ed458e8560d6789aea4727.png" alt="logo">
+              </a>
+          </div>
+            <div class="container-leagues">
+              <a href="/england" class="england m-5">
+                <img src="/img/premierleague.png" alt="" width="64px" height="64px"> 
+              </a>
+              <a href="/spain" class="spain m-5">
+                <img src="/img/la liga.png" alt="" width="64px" height="64px"> 
+              </a>
+              <a href="/germany" class="germany m-5">
+                <img src="/img/bundesliga-logo.png" alt="" width="64px" height="64px"> 
+              </a>
+              <a href="/italy" class="italy m-5">
+                <img src="/img/seria a png.png" alt="" width="64px" height="64px"> 
+              </a>
+              <a href="/france" class="france m-5">
+                <img src="/img/216px-Ligue1.svg.png" alt="" width="64px" height="64px"> 
+              </a>
+            </div>
+          </div>
+      </div>
+  </header>
+
+    
+    <!-- Content Section -->
+    <main>
+      <div class="angry-grid">
+        <div class="matches-grid">
+          <div class="games-container">
+            <table class="table table-sm table-success table-striped table-bordered border-black">
+              <thead>
+                <tr>
+                  <th scope="col">Home</th>
+                  <th scope="col">Score</th>
+                  <th scope="col">Away</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <% for (let i = 0; i < matches.length; i++) { %>
+                  <tr>
+                    <td><%= matches[i].homeTeam %></td>
+                    <td><%= matches[i].homeScore %> : <%= matches[i].awayScore %></td>
+                    <td><%= matches[i].awayTeam %></td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="scorers-grid">
+          <div class="container-scorers">
+            <table class="table table-success table-striped table-bordered border-black vertical-align: middle;">
+              <thead>
+                  <tr>
+                      <th>Position</th>
+                      <th>Player Name</th>
+                      <th>Games Played</th>
+                      <th>Goals</th>
+                      <th>Assists</th>
+                  </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                  <% for (let i = 0; i < goals.length; i++) { %>
+                      <tr>
+                          <td><%= i + 1 %></td>
+                          <td><%= goals[i].playerName %></td>
+                          <td><%= goals[i].playedMatches %></td>
+                          <td><%= goals[i].goals %></td>
+                          <td><%= goals[i].assists %></td>
+                      </tr>
+                  <% } %>
+              </tbody>
+          </table>
+          </div>
+        </div>
+        <div class="table-grid">
+          <div class="container-table">
+            <table class="table table-sm table-success table-striped table-bordered border-black">
+              <thead>
+                <tr>
+                  <th scope="col">Position</th>
+                  <th scope="col">Team Name</th>
+                  <th scope="col">Games Played</th>
+                  <th scope="col">Goals For</th>
+                  <th scope="col">Goals Against</th>
+                  <th scope="col">Points</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <% if (data && data.length > 0) { %>
+                  <% data.forEach(team => { %>
+                    <tr>
+                      <td><%= team.position %></td>
+                      <td><%= team.teamName %></td>
+                      <td><%= team.gamesPlayed %></td>
+                      <td><%= team.goalsFor  %></td>
+                      <td><%= team.goalsAgainst %></td>
+                      <td><%= team.points %></td>
+                    </tr>
+                  <% }); %>
+                <% } else { %>
+                  <tr>
+                    <td colspan="6">Choose League</td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+  </body>
+</html>
